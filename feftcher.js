@@ -9,10 +9,10 @@ const rl = readline.createInterface({
 const getResource = (serverAddress, localPath) => {
   request(serverAddress, (error, response, body) => {
     if (error) {
-      console.log(error); //handle error when its requesting data
+      console.log(error);
       process.exit();
     }
-    fs.writeFile(localPath, body, (error) => {//writing the file
+    fs.writeFile(localPath, body, (error) => {
       fs.access(localPath, (error) => {
         if (error) console.log(error);
         process.exit();
